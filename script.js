@@ -117,7 +117,7 @@ contactForm.addEventListener('submit', async (e) => {
     const formData = new FormData(contactForm);
     
     // IMPORTANT: To make this work, replace 'YOUR_ACCESS_KEY_HERE' with your actual key from web3forms.com
-    formData.append("access_key", "YOUR_ACCESS_KEY_HERE");
+    formData.append("access_key", "90814503-2365-453e-a35b-77dd51c072ed");
 
     try {
         const response = await fetch("https://api.web3forms.com/submit", {
