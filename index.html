@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kabil K S | STEM Educator & Innovator</title>
+    <meta name="description"
+        content="Professional portfolio of Kabil K S, a passionate Physics Educator and STEM Advocate.">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress"></div>
+
+    <!-- Custom Cursor & Physics Canvas -->
+    <canvas id="particleCanvas"></canvas>
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">Kabil<span class="dot">.</span></div>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#contact" class="btn-primary">Get in Touch</a></li>
+            <li><button id="themeToggle" class="theme-toggle magnetic" aria-label="Toggle Theme">☀️</button></li>
+        </ul>
+        <div class="hamburger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero container">
+        <div class="hero-content">
+            <span class="subtitle slide-up">STEM Educator | Physics Mentor</span>
+            <h1 class="slide-up delay-1">Hello, I'm <br> <span class="text-gradient">Kabil K S</span></h1>
+            <p class="slide-up delay-2">Transforming Physics Classrooms into Spaces of Wonder & Innovation. An
+                impassioned educator who advocates for experiential learning and hands-on scientific discovery.</p>
+            <div class="hero-cta slide-up delay-3">
+                <a href="#experience" class="btn-primary magnetic">My Work</a>
+                <a href="#about" class="btn-secondary magnetic">About Me</a>
+                <a href="./assets/2026264523.pdf" class="btn-secondary magnetic" target="_blank" download="Kabil_KS_Resume.pdf">Download Resume</a>
+            </div>
+        </div>
+        <div class="hero-image-container fade-in delay-4">
+            <div class="hero-img-wrapper">
+                <img src="./assets/profile.png" alt="Kabil K S - Profile Picture" class="hero-img">
+            </div>
+            <div class="floating-badge badge-1">⚛️ Physics Enthusiast</div>
+            <div class="floating-badge badge-2">💡 Innovation Advocate</div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="about section">
+        <div class="container">
+            <div class="section-title reveal">
+                <h2>About Me</h2>
+                <p>My journey in education</p>
+            </div>
+            <div class="about-grid">
+                <div class="about-text glass-card reveal" style="padding: 3rem;">
+                    <i>"I believe teaching is not about perfection—it's about connection, adaptability, and continuous
+                        learning."</i>
+                    <p>I am a Physics Educator who values practical, real-world teaching over rigid theory. My classroom
+                        approach is flexible, student-centered, and focused on making science meaningful in everyday
+                        life.</p>
+                    <p>Currently, I am preparing for my Ph.D. in Physics, with the vision of contributing to both
+                        academic research and innovative education. Outside academics, I express creativity through
+                        choreography, performing arts, and photography.</p>
+                </div>
+                <div class="about-skills reveal">
+                    <h3 style="margin-bottom: 1.5rem; font-size: 1.8rem;">Core Competencies</h3>
+                    <div class="skills-container">
+                        <button class="skill-tag active" data-filter="all">All</button>
+                        <button class="skill-tag" data-filter="physics-education">Physics Education</button>
+                        <button class="skill-tag" data-filter="curriculum-development">Curriculum Development</button>
+                        <button class="skill-tag" data-filter="stem-integration">STEM Integration</button>
+                        <button class="skill-tag" data-filter="experiential-learning">Experiential Learning</button>
+                        <button class="skill-tag" data-filter="science-communication">Science Communication</button>
+                        <button class="skill-tag" data-filter="choreography">Choreography</button>
+                        <button class="skill-tag" data-filter="photography">Photography</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience / Projects Section -->
+    <section id="experience" class="projects section">
+        <div class="container">
+            <div class="section-title reveal center">
+                <h2>Professional Experience</h2>
+                <p>Highlighting key roles and contributions</p>
+            </div>
+            <div class="project-grid" id="experienceGrid"
+                style="grid-template-columns: 1fr; max-width: 800px; margin: 0 auto;">
+                <!-- Authentic Experience Record -->
+                <div class="project-card glass-card reveal"
+                    data-skills="physics-education curriculum-development stem-integration experiential-learning science-communication choreography">
+                    <div class="project-img-wrapper" style="height: 350px;">
+                        <img src="./assets/teaching_project_1_1777101161483.png" alt="Curriculum Initiative">
+                    </div>
+                    <div class="project-info">
+                        <span class="project-category">May 2023 - Present · Nagapattinam, India</span>
+                        <h3 class="text-gradient">Physics Teacher | Point Calimere International School</h3>
+                        <p style="margin-bottom: 1rem;">I am a passionate Physics educator who believes learning goes
+                            beyond textbooks—it is about sparking curiosity, nurturing creativity, and shaping confident
+                            learners. My teaching approach is interactive and activity-based, blending experiments,
+                            demonstrations, and storytelling to make science both engaging and meaningful.</p>
+                        <p style="margin-bottom: 1rem;">I aim not just to provide answers but to inspire students to ask
+                            the right questions and explore knowledge with excitement. As a mentor, I actively guide
+                            students in science exhibitions, competitions, and project-based learning, helping them
+                            develop not only academic skills but also confidence, teamwork, and problem-solving
+                            abilities.</p>
+                        <p>Beyond academics, I bring my passion for dance and choreography into education, leading
+                            cultural events, choreographing performances, and encouraging students to express themselves
+                            creatively.</p>
+                    </div>
+                </div>
+                <!-- Empty State Message -->
+                <div id="noProjectsMsg"
+                    style="display: none; text-align: center; padding: 3rem; color: var(--clr-text-muted); grid-column: 1 / -1;">
+                    <p style="font-size: 1.2rem;">More experiences relating to this skill will be updated soon!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="section">
+        <div class="container">
+            <div class="section-title reveal center">
+                <h2>Academic Background</h2>
+                <p>Paving the path for lifelong learning</p>
+            </div>
+            <div class="education-flex reveal">
+                <div class="edu-card glass-card">
+                    <span class="edu-grade">Grade: A</span>
+                    <h3>B.Ed. Secondary Education</h3>
+                    <p style="font-weight: 500; color: var(--clr-text); margin-bottom: 0.2rem;">St. Xavier's College of
+                        Education (Autonomous)</p>
+                    <span class="year">Jun 2021 - May 2023</span>
+                    <p style="margin-top: 1rem; font-size: 0.95rem; line-height: 1.6;">Participated in teaching
+                        workshops, micro-teaching, and school internships. Developed pedagogical skills, classroom
+                        management, and innovative methods to make learning extremely interactive.</p>
+                </div>
+                <div class="edu-card glass-card">
+                    <span class="edu-grade">Grade: A</span>
+                    <h3>M.Sc. Physics</h3>
+                    <p style="font-weight: 500; color: var(--clr-text); margin-bottom: 0.2rem;">St. Xavier's College,
+                        Palayamkottai</p>
+                    <span class="year">Jun 2019 - Apr 2021</span>
+                    <p style="margin-top: 1rem; font-size: 0.95rem; line-height: 1.6;">Active member of Physics
+                        Association, engaged in seminars, experimental lab projects, and simulations. Explored advanced
+                        topics like quantum mechanics and thermodynamics.</p>
+                </div>
+                <div class="edu-card glass-card">
+                    <span class="edu-grade">Grade: O</span>
+                    <h3>B.Sc. Physics</h3>
+                    <p style="font-weight: 500; color: var(--clr-text); margin-bottom: 0.2rem;">St. Joseph's College,
+                        Trichy</p>
+                    <span class="year">Jun 2016 - May 2019</span>
+                    <p style="margin-top: 1rem; font-size: 0.95rem; line-height: 1.6;">Conducted experiments in optics
+                        and electromagnetism. Presented papers on modern physics and used computational tools for
+                        simulations to promote dynamic learning.</p>
+                </div>
+                <div class="edu-card glass-card">
+                    <span class="edu-grade">Grade: 80%</span>
+                    <h3>HSC, Bio Maths</h3>
+                    <p style="font-weight: 500; color: var(--clr-text); margin-bottom: 0.2rem;">NSVV Boys Hr Sec School,
+                        Dindigul</p>
+                    <span class="year">Jun 2014 - Apr 2016</span>
+                    <p style="margin-top: 1rem; font-size: 0.95rem; line-height: 1.6;">Actively participated in science
+                        exhibitions, cultural programs, and sports. Represented the school in basketball tournaments and
+                        contributed to NSS awareness activities.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="section">
+        <div class="container">
+            <div class="section-title reveal center">
+                <h2>Impact & Testimonials</h2>
+                <p>What others say about my teaching</p>
+            </div>
+            <div class="testimonial-carousel reveal">
+                <div class="testimonial-track">
+                    <div class="testimonial-card glass-card">
+                        <div class="quote-icon">"</div>
+                        <p class="quote-text">Mr. Kabil transformed our physics classes. For the first time, I actually
+                            understood the concepts instead of just memorizing formulas. His experiments are
+                            unforgettable!</p>
+                        <div class="quote-author">
+                            <h4>Student, Grade 8</h4>
+                            <span>Point Calimere International School</span>
+                        </div>
+                    </div>
+                    <div class="testimonial-card glass-card">
+                        <div class="quote-icon">"</div>
+                        <p class="quote-text">His ability to integrate STEM concepts into everyday learning is
+                            remarkable. Kabil doesn't just teach physics; he inspires a genuine curiosity for how the
+                            world works.</p>
+                        <div class="quote-author">
+                            <h4>Fellow Educator</h4>
+                            <span>Science Department</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Creative Pursuits Section -->
+    <section id="creative" class="section">
+        <div class="container">
+            <div class="section-title reveal">
+                <h2>Creative Pursuits</h2>
+                <p>Choreography & Photography</p>
+            </div>
+            <div class="masonry-grid reveal">
+                <div class="masonry-item">
+                    <img src="./assets/photography.png" alt="Photography">
+                    <div class="overlay"><span>Photography</span></div>
+                </div>
+                <div class="masonry-item">
+                    <img src="./assets/choreography.png" alt="Choreography Event">
+                    <div class="overlay"><span>Choreography</span></div>
+                </div>
+                <div class="masonry-item">
+                    <img src="./assets/creative_tools.png" alt="Creative Tools">
+                    <div class="overlay"><span>Creative Tools</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section">
+        <div class="container">
+            <div class="contact-wrapper glass-card reveal" style="padding: 4rem;">
+                <div class="contact-info">
+                    <h2>Let's <span class="text-gradient">Collaborate</span></h2>
+                    <p>I'm always open to discussing curriculum design, educational consulting, or innovative STEM
+                        projects.</p>
+
+                    <div class="contact-item">
+                        <div class="icon-box">💼</div>
+                        <a href="https://linkedin.com/in/kabil-k-s-jack-of-versatile-bab26930a" target="_blank"
+                            style="text-decoration: underline;">Connect on LinkedIn</a>
+                    </div>
+                    <div class="contact-item">
+                        <div class="icon-box">📍</div>
+                        <span>Nagapattinam, Tamil Nadu, India</span>
+                    </div>
+                    <div class="contact-item">
+                        <div class="icon-box">🎂</div>
+                        <span>April 21</span>
+                    </div>
+                </div>
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required placeholder="Your Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="4" required
+                            placeholder="How can we work together?"></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary">Send Message</button>
+                    <p class="form-status" id="formStatus" style="margin-top: 1rem; color: #38bdf8;"></p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <div class="logo">Kabil<span class="dot">.</span></div>
+            <p style="color: var(--clr-text-muted); font-size: 0.9rem;">&copy; 2026 Kabil K S. Designed with excellence.
+            </p>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/kabil-k-s-jack-of-versatile-bab26930a" target="_blank">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top magnetic" aria-label="Back to top">↑</button>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
