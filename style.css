@@ -1050,13 +1050,19 @@ footer {
 
     .nav-links {
         display: none;
-        /* Can be enabled back with js */
         position: absolute;
-        top: 100px;
+        top: 80px;
         left: 5%;
         width: 90%;
         flex-direction: column;
         padding: 2rem;
+        background: rgba(var(--rgb-bg), 0.95);
+        backdrop-filter: blur(20px);
+        border: 1px solid var(--clr-border);
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        gap: 1.5rem;
     }
 
     .nav-links.active {
@@ -1065,5 +1071,55 @@ footer {
 
     .hamburger {
         display: block;
+        z-index: 1001;
+    }
+}
+
+/* Hamburger Animation */
+.hamburger.toggle .line1 { transform: rotate(-45deg) translate(-5px, 6px); }
+.hamburger.toggle .line2 { opacity: 0; }
+.hamburger.toggle .line3 { transform: rotate(45deg) translate(-5px, -6px); }
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+    :root {
+        --section-padding: 5rem 1.5rem;
+    }
+    
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-cta {
+        flex-direction: column;
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .hero-cta a {
+        text-align: center;
+        width: 100%;
+    }
+    
+    .contact-item {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* Disable Custom Cursor on Touch Devices */
+@media (pointer: coarse) {
+    body, a, button, .theme-toggle, .back-to-top, .magnetic, .glass-card, .project-card {
+        cursor: auto !important;
+        transform: none !important;
+    }
+    
+    .cursor-dot, .cursor-outline {
+        display: none !important;
+    }
+    
+    /* Disable 3D tilt and magnetic effects on mobile */
+    .glass-card {
+        transform-style: flat;
     }
 }
