@@ -1083,33 +1083,177 @@ footer {
 /* Mobile Optimizations */
 @media (max-width: 768px) {
     :root {
-        --section-padding: 5rem 1.5rem;
+        --section-padding: 4rem 1.5rem;
     }
     
     .hero h1 {
-        font-size: 2.5rem;
+        font-size: clamp(2.5rem, 8vw, 3.5rem);
+    }
+
+    .hero p {
+        font-size: 1rem;
+        max-width: 100%;
+        margin-bottom: 2rem;
+    }
+
+    .section-title h2 {
+        font-size: clamp(1.8rem, 6vw, 2.5rem);
     }
 
     .hero-cta {
         flex-direction: column;
         width: 100%;
-        max-width: 300px;
+        max-width: 100%;
     }
 
     .hero-cta a {
         text-align: center;
         width: 100%;
+        padding: 1.2rem 1.5rem; /* Larger tap targets */
+    }
+
+    .about-text.glass-card, 
+    .contact-wrapper.glass-card {
+        padding: 1.5rem !important; /* Reduce massive padding on phone */
     }
     
     .contact-item {
-        flex-direction: column;
-        text-align: center;
+        flex-direction: row;
+        text-align: left;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .project-info {
+        padding: 1.5rem;
+    }
+
+    .skills-container {
+        justify-content: center;
+    }
+
+    .media-gallery {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)) !important;
+    }
+}
+
+/* Lightbox Styling */
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+}
+
+.lightbox.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.lightbox-content {
+    max-width: 95vw;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.lightbox-content img, 
+.lightbox-content video {
+    max-width: 100%;
+    max-height: 85vh;
+    object-fit: contain;
+    border-radius: 12px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    transform: scale(0.9);
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.lightbox.active .lightbox-content img,
+.lightbox.active .lightbox-content video {
+    transform: scale(1);
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 2vh;
+    right: 5vw;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    color: white;
+    font-size: 2rem;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 2001;
+    transition: var(--transition);
+}
+
+.lightbox-close:hover {
+    background: var(--clr-primary);
+    transform: rotate(90deg);
+}
+
+.lightbox-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    color: white;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 2001;
+    transition: var(--transition);
+}
+
+.lightbox-nav:hover {
+    background: var(--clr-primary);
+    border-color: var(--clr-primary);
+}
+
+.lightbox-nav.prev {
+    left: 2vw;
+}
+
+.lightbox-nav.next {
+    right: 2vw;
+}
+
+@media (max-width: 768px) {
+    .lightbox-nav {
+        width: 45px;
+        height: 45px;
+        font-size: 1.5rem;
     }
 }
 
 /* Disable Custom Cursor on Touch Devices */
 @media (pointer: coarse) {
-    body, a, button, .theme-toggle, .back-to-top, .magnetic, .glass-card, .project-card {
+    body, a, button, .theme-toggle, .back-to-top, .magnetic, .glass-card, .project-card, .skill-tag, .media-item {
         cursor: auto !important;
         transform: none !important;
     }
@@ -1121,5 +1265,9 @@ footer {
     /* Disable 3D tilt and magnetic effects on mobile */
     .glass-card {
         transform-style: flat;
+    }
+
+    button, a {
+        min-height: 48px; /* App-like minimum tap target */
     }
 }

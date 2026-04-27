@@ -94,7 +94,7 @@
                 <div class="about-skills reveal">
                     <h3 style="margin-bottom: 1.5rem; font-size: 1.8rem;">Core Competencies</h3>
                     <div class="skills-container">
-                        <button class="skill-tag active" data-filter="all">All</button>
+                        <!-- 'All' button removed as per Instagram Highlights UI -->
                         <button class="skill-tag" data-filter="physics-education">Physics Education</button>
                         <button class="skill-tag" data-filter="curriculum-development">Curriculum Development</button>
                         <button class="skill-tag" data-filter="stem-integration">STEM Integration</button>
@@ -121,7 +121,7 @@
                 <div class="project-card glass-card reveal"
                     data-skills="physics-education curriculum-development stem-integration experiential-learning science-communication choreography">
                     <div class="project-img-wrapper" style="height: 350px; background: white;">
-                        <img src="./assets/teaching_project_1_1777101161483.png" alt="Curriculum Initiative"
+                        <img src="./assets/physics-education/teaching_project_1.png" alt="Curriculum Initiative"
                             style="object-fit: contain; padding: 1rem;">
                     </div>
                     <div class="project-info">
@@ -244,16 +244,16 @@
                 <p>Choreography & Photography</p>
             </div>
             <div class="masonry-grid reveal">
-                <div class="masonry-item">
-                    <img src="./assets/photography.png" alt="Photography">
+                <div class="masonry-item creative-folder" data-filter="photography" style="cursor: pointer;">
+                    <img src="./assets/photography/photography.png" alt="Photography">
                     <div class="overlay"><span>Photography</span></div>
                 </div>
-                <div class="masonry-item">
-                    <img src="./assets/choreography.png" alt="Choreography Event">
+                <div class="masonry-item creative-folder" data-filter="choreography" style="cursor: pointer;">
+                    <img src="./assets/choreography/choreography.png" alt="Choreography Event">
                     <div class="overlay"><span>Choreography</span></div>
                 </div>
-                <div class="masonry-item">
-                    <img src="./assets/creative_tools.png" alt="Creative Tools">
+                <div class="masonry-item creative-folder" data-filter="creative-tools" style="cursor: pointer;">
+                    <img src="./assets/creative-tools/creative_tools.png" alt="Creative Tools">
                     <div class="overlay"><span>Creative Tools</span></div>
                 </div>
             </div>
@@ -320,6 +320,17 @@
     <!-- Back to Top Button -->
     <button id="backToTop" class="back-to-top magnetic" aria-label="Back to top">↑</button>
 
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox">
+        <button id="lightboxPrev" class="lightbox-nav prev">&lt;</button>
+        <button id="lightboxClose" class="lightbox-close">&times;</button>
+        <div class="lightbox-content">
+            <!-- Image or Video will be injected here -->
+        </div>
+        <button id="lightboxNext" class="lightbox-nav next">&gt;</button>
+    </div>
+
+    <script src="media.js"></script>
     <script src="script.js"></script>
 </body>
 

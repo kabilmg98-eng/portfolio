@@ -26,7 +26,7 @@ document.addEventListener('mouseenter', () => {
 });
 
 // Hover effect for interactive elements
-const interactables = document.querySelectorAll('a, button, .project-card');
+const interactables = document.querySelectorAll('a, button, .project-card, .creative-folder, .skill-tag');
 interactables.forEach(el => {
     el.addEventListener('mouseenter', () => cursorOutline.classList.add('hovering'));
     el.addEventListener('mouseleave', () => cursorOutline.classList.remove('hovering'));
@@ -172,36 +172,133 @@ window.addEventListener('load', () => {
     });
 });
 
-// Portfolio Filtering
+// Portfolio Filtering & Dynamic Media Gallery
 const skillTags = document.querySelectorAll('.skill-tag');
 const projectCards = document.querySelectorAll('.project-card');
 const noProjectsMsg = document.getElementById('noProjectsMsg');
+const mediaGallery = document.getElementById('mediaGallery');
+
+// mediaData is now loaded globally from media.js
+// Lightbox Carousel Logic
+const lightbox = document.getElementById('lightbox');
+const lightboxContent = document.querySelector('.lightbox-content');
+const lightboxClose = document.getElementById('lightboxClose');
+const lightboxPrev = document.getElementById('lightboxPrev');
+const lightboxNext = document.getElementById('lightboxNext');
+
+let currentGalleryItems = [];
+let currentItemIndex = 0;
+
+function openLightbox(filterValue) {
+    const items = mediaData[filterValue];
+    if (!items || items.length === 0) {
+        console.log("No media found for this folder.");
+        return; // Don't open if no media
+    }
+
+    currentGalleryItems = items;
+    currentItemIndex = 0;
+    
+    renderLightboxItem();
+    lightbox.classList.add('active');
+}
+
+function renderLightboxItem() {
+    if (!lightboxContent) return;
+    lightboxContent.innerHTML = ''; // clear previous
+
+    const item = currentGalleryItems[currentItemIndex];
+
+    if (item.type === 'video') {
+        const video = document.createElement('video');
+        video.src = item.src;
+        video.controls = true;
+        video.autoplay = true;
+        lightboxContent.appendChild(video);
+    } else {
+        const img = document.createElement('img');
+        img.src = item.src;
+        img.alt = item.title || 'Media';
+        lightboxContent.appendChild(img);
+    }
+
+    // Toggle navigation buttons visibility based on array length
+    if (lightboxPrev && lightboxNext) {
+        if (currentGalleryItems.length > 1) {
+            lightboxPrev.style.display = 'flex';
+            lightboxNext.style.display = 'flex';
+        } else {
+            lightboxPrev.style.display = 'none';
+            lightboxNext.style.display = 'none';
+        }
+    }
+}
+
+function showNextItem() {
+    if (currentGalleryItems.length <= 1) return;
+    currentItemIndex = (currentItemIndex + 1) % currentGalleryItems.length;
+    renderLightboxItem();
+}
+
+function showPrevItem() {
+    if (currentGalleryItems.length <= 1) return;
+    currentItemIndex = (currentItemIndex - 1 + currentGalleryItems.length) % currentGalleryItems.length;
+    renderLightboxItem();
+}
+
+function closeLightbox() {
+    if (lightbox) {
+        lightbox.classList.remove('active');
+        // Stop videos when closing
+        setTimeout(() => { lightboxContent.innerHTML = ''; }, 300);
+    }
+    // Remove active state from skill buttons
+    skillTags.forEach(t => t.classList.remove('active'));
+}
+
+if (lightboxNext) lightboxNext.addEventListener('click', (e) => { e.stopPropagation(); showNextItem(); });
+if (lightboxPrev) lightboxPrev.addEventListener('click', (e) => { e.stopPropagation(); showPrevItem(); });
+if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
+
+if (lightbox) {
+    lightbox.addEventListener('click', (e) => {
+        // Close if clicking outside the image/video and not on a button
+        if (e.target === lightbox) {
+            closeLightbox();
+        }
+    });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        if (!lightbox.classList.contains('active')) return;
+        
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowRight') showNextItem();
+        if (e.key === 'ArrowLeft') showPrevItem();
+    });
+}
 
 skillTags.forEach(tag => {
-    tag.addEventListener('click', () => {
+    tag.addEventListener('click', (e) => {
+        e.preventDefault();
         // Remove active class from all tags
         skillTags.forEach(t => t.classList.remove('active'));
         // Add active class to clicked tag
         tag.classList.add('active');
 
         const filterValue = tag.getAttribute('data-filter');
-        let hasVisibleProjects = false;
+        
+        // Open the dynamic media carousel
+        openLightbox(filterValue);
+    });
+});
 
-        projectCards.forEach(card => {
-            const skills = card.getAttribute('data-skills') || "";
-            if (filterValue === 'all' || skills.includes(filterValue)) {
-                card.style.display = 'flex';
-                hasVisibleProjects = true;
-            } else {
-                card.style.display = 'none';
-            }
-        });
-
-        if (!hasVisibleProjects) {
-            noProjectsMsg.style.display = 'block';
-        } else {
-            noProjectsMsg.style.display = 'none';
-        }
+const creativeFolders = document.querySelectorAll('.creative-folder');
+creativeFolders.forEach(folder => {
+    folder.addEventListener('click', (e) => {
+        e.preventDefault();
+        const filterValue = folder.getAttribute('data-filter');
+        openLightbox(filterValue);
     });
 });
 
